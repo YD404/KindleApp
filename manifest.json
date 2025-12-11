@@ -7,14 +7,9 @@
     "theme_color": "#2563eb",
     "icons": [
         {
-            "src": "https://fonts.gstatic.com/s/i/materialicons/menu_book/v6/24px.svg",
-            "sizes": "192x192",
-            "type": "image/svg+xml"
-        },
-        {
-            "src": "https://fonts.gstatic.com/s/i/materialicons/menu_book/v6/24px.svg",
+            "src": "icon.png",
             "sizes": "512x512",
-            "type": "image/svg+xml"
+            "type": "image/png"
         }
     ]
 }
