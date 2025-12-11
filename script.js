@@ -311,14 +311,7 @@ const App = () => {
                         </button>
                     )}
 
-                    {/* PC View Upload Button */}
-                    <button
-                        onClick={() => fileInputRef.current.click()}
-                        className="hidden md:flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg text-sm font-bold transition"
-                    >
-                        <Icon name="UploadCloud" size={20} />
-                        画像を追加
-                    </button>
+                    {/* PC View Upload Button - Removed as per request (use drop area or drag & drop) */}
                     <input
                         type="file"
                         multiple
@@ -349,10 +342,16 @@ const App = () => {
                 {/* File List */}
                 <div className="flex-1 overflow-y-auto p-2 md:p-4 space-y-2 pb-24 md:pb-4">
                     {files.length === 0 && (
-                        <div className="h-64 flex flex-col items-center justify-center text-gray-400 border-2 border-dashed border-gray-200 rounded-xl m-2 bg-gray-50">
+                        <div
+                            onClick={() => fileInputRef.current.click()}
+                            className="h-64 flex flex-col items-center justify-center text-gray-400 border-2 border-dashed border-gray-200 rounded-xl m-2 bg-gray-50 cursor-pointer hover:bg-gray-100 hover:border-blue-400 transition"
+                        >
                             <Icon name="Image" size={48} className="text-gray-300 mb-2" />
                             <p className="font-medium">画像をここへドロップ</p>
-                            <p className="text-xs mt-1">またはボタンから追加</p>
+                            <p className="text-xs mt-1">
+                                <span className="md:hidden">またはタップして追加</span>
+                                <span className="hidden md:inline">またはクリックして追加</span>
+                            </p>
                         </div>
                     )}
 
@@ -397,14 +396,8 @@ const App = () => {
                     ))}
                 </div>
 
-                {/* Mobile Floating Action Buttons */}
+                {/* Mobile Floating Action Buttons - Removed as per request */}
                 <div className="md:hidden absolute bottom-4 right-4 flex flex-col gap-3 z-20">
-                    <button
-                        onClick={() => fileInputRef.current.click()}
-                        className="w-14 h-14 bg-gray-800 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-700 active:scale-95 transition"
-                    >
-                        <Icon name="UploadCloud" size={24} />
-                    </button>
                 </div>
             </div>
 
