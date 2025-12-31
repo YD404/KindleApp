@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kindle PDF Converter</title>
+    <link rel="icon" href="icon.jpg" type="image/jpeg">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- OGP Meta Tags -->
+    <meta property="og:title" content="Kindle PDF Converter" />
+    <meta property="og:description" content="画像をKindle用に最適化されたPDFに変換するツール" />
+    <meta property="og:image" content="icon.jpg" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Material Symbols -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('SW registered: ', reg))
+                    .catch(err => console.log('SW registration failed: ', err));
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel" src="script.js"></script>
+</body>
+
+</html>
