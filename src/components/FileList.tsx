@@ -38,7 +38,7 @@ export const FileList: React.FC<FileListProps> = ({
         e.dataTransfer.setData('text/plain', index.toString());
     };
 
-    const handleDragOver = (e: React.DragEvent, _index: number) => {
+    const handleDragOver = (e: React.DragEvent) => {
         e.preventDefault();
         e.dataTransfer.dropEffect = 'move';
     };

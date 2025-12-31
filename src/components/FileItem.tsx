@@ -14,7 +14,7 @@ interface FileItemProps {
     /** ドラッグ開始 */
     onDragStart: (e: React.DragEvent, index: number) => void;
     /** ドラッグオーバー */
-    onDragOver: (e: React.DragEvent, index: number) => void;
+    onDragOver: (e: React.DragEvent) => void;
     /** ドロップ */
     onDrop: (e: React.DragEvent, index: number) => void;
 }
@@ -51,11 +51,11 @@ export const FileItem: React.FC<FileItemProps> = ({
         <div
             draggable
             onDragStart={(e) => onDragStart(e, index)}
-            onDragOver={(e) => onDragOver(e, index)}
+            onDragOver={(e) => onDragOver(e)}
             onDrop={(e) => onDrop(e, index)}
             className={`flex items-center p-2 bg-white rounded-lg border shadow-sm draggable-item select-none ${isDragging
-                    ? 'opacity-50 ring-2 ring-blue-400'
-                    : 'hover:border-blue-300'
+                ? 'opacity-50 ring-2 ring-blue-400'
+                : 'hover:border-blue-300'
                 }`}
         >
             {/* ドラッグハンドル */}
