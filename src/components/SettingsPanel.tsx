@@ -1,5 +1,5 @@
 import { Icon } from './Icon';
-import { KINDLE_SIZES } from '../constants';
+import { KINDLE_SIZES, QUALITY_OPTIONS } from '../constants';
 import type { PdfOptions, KindleSizeType } from '../types';
 
 interface SettingsPanelProps {
@@ -147,31 +147,22 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                     </div>
                 </div>
 
-                {/* 画質スライダー */}
+                {/* 画質選択 */}
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-3">
-                    <div className="flex justify-between mb-2">
-                        <span className="text-sm font-semibold text-gray-800">
-                            画質 (圧縮率)
-                        </span>
-                        <span className="text-xs font-mono bg-gray-100 px-2 py-0.5 rounded text-gray-600">
-                            {Math.round(options.quality * 100)}%
-                        </span>
+                    <div className="text-sm font-semibold text-gray-800 mb-2">
+                        画質
                     </div>
-                    <input
-                        type="range"
-                        min="0.1"
-                        max="1.0"
-                        step="0.1"
+                    <select
                         value={options.quality}
-                        onChange={(e) =>
-                            updateOption('quality', parseFloat(e.target.value))
-                        }
-                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
-                    />
-                    <div className="flex justify-between mt-1 text-xs text-gray-400 px-1">
-                        <span>軽量</span>
-                        <span>高画質</span>
-                    </div>
+                        onChange={(e) => updateOption('quality', parseFloat(e.target.value))}
+                        className="w-full bg-gray-50 border border-gray-200 rounded px-2 py-2 text-sm focus:outline-none focus:border-blue-500 transition cursor-pointer"
+                    >
+                        {QUALITY_OPTIONS.map((opt) => (
+                            <option key={opt.value} value={opt.value}>
+                                {opt.label}
+                            </option>
+                        ))}
+                    </select>
                 </div>
             </div>
 

@@ -7,6 +7,14 @@ export const KINDLE_SIZES: Record<Exclude<KindleSizeType, 'none'>, { width: numb
     small: { width: 758, height: 1024, label: '小 (758×1024)' },
 };
 
+// 画質オプション
+export const QUALITY_OPTIONS = [
+    { value: 1.0, label: '最高（100%）' },
+    { value: 0.8, label: '普通（80%）' },
+    { value: 0.6, label: '節約（60%）' },
+    { value: 0.1, label: '最小（10%）' },
+] as const;
+
 // デフォルトのPDF変換オプション
 export const DEFAULT_PDF_OPTIONS: PdfOptions = {
     grayscale: true,
