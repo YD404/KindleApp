@@ -170,9 +170,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
             <div className="p-4 bg-white border-t space-y-3 mt-auto shadow-inner">
                 {isProcessing ? (
                     <div className="space-y-2 py-2">
-                        <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                        <div className="progress-bar">
                             <div
-                                className="h-full bg-blue-600 transition-all duration-300"
+                                className="progress-bar__fill"
                                 style={{ width: `${progress}%` }}
                             />
                         </div>
@@ -185,7 +185,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                         <button
                             onClick={onConvert}
                             disabled={fileCount === 0}
-                            className="w-full py-3 px-4 bg-gray-900 hover:bg-gray-800 active:bg-black text-white rounded-xl font-bold shadow-lg shadow-gray-200 transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base"
+                            className="btn-primary"
                         >
                             <Icon name="Download" size={20} />
                             PDF作成
@@ -193,7 +193,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
 
                         <button
                             onClick={onOpenSendToKindle}
-                            className="w-full py-3 px-4 bg-white border border-gray-300 hover:bg-gray-50 active:bg-gray-100 text-gray-700 rounded-xl font-bold transition flex items-center justify-center gap-2 text-sm md:text-base"
+                            className="btn-secondary"
                         >
                             <Icon name="Send" size={20} />
                             Send to Kindle

@@ -65,7 +65,8 @@ export const FileList: React.FC<FileListProps> = ({
                 <select
                     value={sortMode}
                     onChange={handleSortChange}
-                    className="bg-transparent text-sm font-medium text-gray-600 focus:outline-none cursor-pointer w-full md:w-auto"
+                    className="form-select"
+                    style={{ width: 'auto', background: 'transparent' }}
                 >
                     <option value="manual">手動並び替え (ドラッグ)</option>
                     <option value="name_asc">名前順 (昇順)</option>
@@ -81,9 +82,10 @@ export const FileList: React.FC<FileListProps> = ({
             {/* ファイルリスト */}
             <div className="flex-1 overflow-y-auto p-2 md:p-4 space-y-2 pb-24 md:pb-4">
                 {files.length === 0 ? (
+                    /* 空の状態: ドロップゾーン */
                     <div
                         onClick={onOpenFilePicker}
-                        className="h-64 flex flex-col items-center justify-center text-gray-400 border-2 border-dashed border-gray-200 rounded-xl m-2 bg-gray-50 cursor-pointer hover:bg-gray-100 hover:border-blue-400 transition"
+                        className="drop-zone m-2"
                     >
                         <Icon name="Image" size={48} className="text-gray-300 mb-2" />
                         <p className="font-medium">画像をここへドロップ</p>
@@ -93,18 +95,30 @@ export const FileList: React.FC<FileListProps> = ({
                         </p>
                     </div>
                 ) : (
-                    files.map((file, index) => (
-                        <FileItem
-                            key={file.id}
-                            file={file}
-                            index={index}
-                            isDragging={draggingItemId === file.id}
-                            onDelete={onDeleteFile}
-                            onDragStart={handleDragStart}
-                            onDragOver={handleDragOver}
-                            onDrop={handleDrop}
-                        />
-                    ))
+                    /* ファイルがある場合: リスト + 追加ボタン */
+                    <>
+                        {files.map((file, index) => (
+                            <FileItem
+                                key={file.id}
+                                file={file}
+                                index={index}
+                                isDragging={draggingItemId === file.id}
+                                onDelete={onDeleteFile}
+                                onDragStart={handleDragStart}
+                                onDragOver={handleDragOver}
+                                onDrop={handleDrop}
+                            />
+                        ))}
+
+                        {/* 追加ボタン */}
+                        <button
+                            onClick={onOpenFilePicker}
+                            className="btn-add w-full"
+                        >
+                            <Icon name="Image" size={20} />
+                            画像を追加
+                        </button>
+                    </>
                 )}
             </div>
         </>
