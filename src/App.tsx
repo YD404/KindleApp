@@ -95,15 +95,15 @@ function App() {
         {/* ヘッダー */}
         <div className="p-4 border-b bg-white flex justify-between items-center shadow-sm z-10">
           <h1 className="text-lg font-bold text-gray-800 flex items-center gap-2">
-            <Icon name="BookOpen" className="text-blue-600" />
-            Kindle PDF Maker
+            <Icon name="BookOpen" className="text-gray-700" />
+            PDFtoKindle
           </h1>
 
           {/* モバイル用「次へ」ボタン */}
           {files.length > 0 && (
             <button
               onClick={() => setMobileStep('settings')}
-              className="md:hidden flex items-center gap-1 text-blue-600 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-lg transition ml-auto"
+              className="md:hidden flex items-center gap-1 text-gray-700 bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded-lg transition ml-auto"
             >
               <span className="text-sm font-bold">次へ</span>
               <Icon name="ArrowRight" size={20} />

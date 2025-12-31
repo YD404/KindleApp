@@ -1,12 +1,12 @@
 {
-    "name": "Kindle PDF Converter",
+    "name": "PDFtoKindle",
     "short_name": "PDFtoKindle",
     "description": "画像をKindle用に最適化されたPDFに変換するツール",
     "start_url": "./",
     "scope": "./",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#2563eb",
+    "theme_color": "#333333",
     "orientation": "portrait",
     "categories": [
         "productivity",
